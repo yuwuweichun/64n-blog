@@ -1,14 +1,23 @@
 {
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "clean": "rd /s /q .next"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
+    "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "tailwindcss": "^4.1.17"
   },
   "engines": {
     "node": ">=18"
