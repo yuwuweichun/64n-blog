@@ -19,7 +19,69 @@
   font-size: 1.5rem;
   line-height: 1.4;
   margin: 1rem 0;
-  color: var(--cli-blue); 
+  color: var(--cli-blue);
+  /* 下划线动画容器 */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: none; /* 覆盖 global.css 对 h2 的默认下边框 */
+  overflow: hidden; /* 隐藏穿梭条越界部分 */
+}
+
+/* 基础静态线（与主题边框色一致） */
+.headingLg::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--cli-border);
+}
+
+/* 穿梭高亮条（蓝-青-紫渐变，循环移动） */
+.headingLg::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cli-blue), var(--cli-cyan), var(--cli-purple));
+  box-shadow: 0 0 6px rgba(97, 175, 239, 0.6);
+  transform: translateX(-64px);
+  animation: cliUnderlineShuttle 2.2s linear infinite;
+}
+
+/* 悬停时略微提速，增强动效反馈 */
+.headingLg:hover::before {
+  animation-duration: 1.4s;
+}
+
+/* 无障碍：减少动画时关闭穿梭动效，保持静态线 */
+@media (prefers-reduced-motion: reduce) {
+  .headingLg::before {
+    animation: none;
+    transform: none;
+    width: 100%;
+    background: var(--cli-blue);
+    box-shadow: none;
+    height: 2px;
+  }
+}
+
+@keyframes cliUnderlineShuttle {
+  from {
+    transform: translateX(-64px);
+  }
+  to {
+    transform: translateX(calc(100% + 64px));
+  }
+}
+
+/* 避免标题中的链接重复产生下划线（已在 global.css 为 a 定义了 ::after） */
+.headingLg a::after {
+  display: none;
 }
  
 .headingMd {

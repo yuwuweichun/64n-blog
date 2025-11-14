@@ -13,3 +13,17 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+/* Cursor blinking animation */
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
