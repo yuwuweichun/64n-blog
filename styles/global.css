@@ -358,3 +358,39 @@ p {
   color: var(--cli-fg);
   line-height: 1.8;
 }
+
+/* ========== 滚动条样式（代码块 OneDark） ========== */
+/* Firefox */
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cli-bg-lighter) var(--cli-bg-light);
+}
+
+/* WebKit (Chrome/Edge/Safari) */
+pre::-webkit-scrollbar {
+  height: 8px; /* 水平滚动条高度 */
+  width: 8px;  /* 垂直滚动条宽度（以防需要） */
+  background: transparent;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--cli-bg-light);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: var(--cli-bg-lighter);
+  border-radius: 6px;
+  border: 1px solid var(--cli-border);
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background-color: #5c6370; /* OneDark 注释灰，悬停更明显 */
+}
+
+pre::-webkit-scrollbar-thumb:active {
+  background-color: var(--cli-fg); /* 主文色，按下时更亮 */
+}
+
+pre::-webkit-scrollbar-corner {
+  background: var(--cli-bg-light);
+}
