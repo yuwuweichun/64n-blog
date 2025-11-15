@@ -5,6 +5,7 @@ import CodeCopyButton from '../../components/CodeCopyButton';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
 import utilStyles from '../../styles/utils.module.css';
+import CliMetaPanel from '../../components/CliMetaPanel';
 
  
 export async function getStaticProps({ params }) {
@@ -45,6 +46,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
+        <CliMetaPanel description={postData.description} keywords={postData.keywords} />
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
