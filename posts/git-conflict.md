@@ -1,8 +1,7 @@
 ---
-title: 'Git 合并冲突'
+title: '合并冲突/Merge Conflict'
 date: '2025-11-15'
 ---
-
 ## 合并冲突定义
 Git 通常可以自动解决分支之间的冲突并合并它们。 通常，更改发生在不同的行，甚至不同的文件，因此计算机容易理解合并。 但是，有时存在竞争更改的情况：
 - 同一文件的同一行被不同分支修改
@@ -56,7 +55,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ### 两次合并之后的Git Graph
 ![两次合并后的源代码管理图形](../images/git-conflict-gui.png)
 
-
+---
 参考：
 - [关于合并冲突 - GitHub 文档](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
 - [在 VS Code 中使用 Git 版本控制](https://code.visualstudio.com/docs/sourcecontrol/overview#_merge-conflicts)
