@@ -77,12 +77,63 @@ date: '2025-11-14'
 - 图像优化：Markdown 图片可迁移为 `<Image>` 组件（需解析阶段替换）。
 - 数学公式：添加 `remark-math` + `rehype-katex`。
 
+## 部署与发布
+
+### Vercel 自动部署流程
+本项目已配置 Vercel 自动部署，支持 Git 推送触发自动构建与发布。
+
+#### 初次部署步骤
+1. **准备 Git 仓库**：确保项目已推送到 GitHub/GitLab/Bitbucket。
+2. **连接 Vercel**：
+   - 访问 [vercel.com](https://vercel.com) 并登录。
+   - 点击 "New Project" → 导入你的 Git 仓库。
+   - Vercel 会自动检测 Next.js 框架并读取 `vercel.json` 配置。
+3. **配置构建**（通常自动识别，无需手动配置）：
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `.next`
+   - **Install Command**: `npm install`
+   - **Node Version**: >=18（已在 `package.json` engines 中指定）
+4. **部署**：点击 "Deploy"，首次部署完成后会获得生产环境 URL（格式：`your-project.vercel.app`）。
+
+#### 自动部署工作流
+- **主分支推送**：每次 `git push` 到 `main`/`master` 分支 → Vercel 自动触发生产部署。
+- **分支/PR 预览**：推送到其他分支或创建 PR → Vercel 生成独立预览 URL，便于测试。
+- **回滚**：在 Vercel Dashboard 可一键回滚到历史版本。
+
+#### 新文章发布流程
+1. 在本地 `posts/` 目录新建 `.md` 文件（包含 frontmatter）。
+2. 提交到 Git：`git add posts/your-new-post.md; git commit -m "Add new post"; git push`。
+3. Vercel 自动检测推送 → 重新构建 → 部署新版本（包含新文章）。
+4. 无需手动操作，通常 1-3 分钟完成部署。
+
+#### CI/CD 配置
+已配置 GitHub Actions CI 管线（`.github/workflows/ci.yml`）：
+- **触发条件**：Push 到 `main`/`master` 或 PR 创建。
+- **执行内容**：
+  - 多 Node 版本矩阵测试（18.x, 20.x）。
+  - 安装依赖 → 构建项目 → 上传构建产物。
+- **作用**：在 Vercel 部署前预验证构建是否成功，确保代码质量。
+
+#### 环境变量（如需）
+- 在 Vercel Dashboard → Project Settings → Environment Variables 中添加。
+- 构建时可用变量示例：`NEXT_PUBLIC_SITE_URL`、`NEXT_PUBLIC_GA_ID` 等。
+- 本地开发：创建 `.env.local`（已在 `.gitignore` 中排除）。
+
+#### 自定义域名
+- 在 Vercel Project Settings → Domains 中添加自定义域名。
+- 配置 DNS 记录（A/CNAME）指向 Vercel，SSL 证书自动签发。
+
+#### 相关配置文件
+- `vercel.json`：Vercel 平台配置（构建命令、输出目录）。
+- `.github/workflows/ci.yml`：GitHub Actions CI 管线。
+- `.gitignore`：已排除 `.next`、`.vercel`、`node_modules` 等。
+
 ## 代理操作速查
-- 添加文章：新建 Markdown + frontmatter → 保存 → 刷新。
+- 添加文章：新建 Markdown + frontmatter → 保存 → `git push` → Vercel 自动部署。
 - 调整排序：修改 `lib/posts.js` 排序逻辑。
 - 扩展 Markdown：在 `getPostData` 中 `.use(...)` 插件链。
 - 引入 Tailwind：更新 `global.css` + 使用类名。
 - 修改配色：更新 `global.css` 中 `:root` 变量。
 - 添加 Callout 类型：在 `lib/remark-callouts.js` 添加类型，并在 CSS 中定义对应样式。
-
-> 如有未覆盖的流程（例如部署策略、CI）请反馈：可再补充“部署与发布”章节。
+- 部署新版本：`git push` → 自动触发 Vercel 部署。
+- 查看部署状态：访问 Vercel Dashboard 或查看 Git commit 关联的部署链接。
