@@ -2,7 +2,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build && next-sitemap --config next-sitemap.config.cjs",
     "dev": "next dev",
     "start": "next start",
     "clean": "rd /s /q .next"
@@ -29,5 +29,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "next-sitemap": "^4.2.3"
   }
 }
