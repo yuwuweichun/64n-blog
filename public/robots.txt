@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://64n-blog.vercel.app/sitemap.xml

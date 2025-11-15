@@ -27,11 +27,18 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ postData }) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://64n-blog.vercel.app';
+  const postUrl = `${siteUrl}/posts/${postData.id}`;
+
   return (
-    <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+    <Layout
+      title={postData.title}
+      description={postData.description}
+      keywords={postData.keywords}
+      url={postUrl}
+      type="article"
+      datePublished={postData.date}
+    >
       <CodeCopyButton />
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>

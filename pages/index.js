@@ -15,10 +15,11 @@ export async function getStaticProps() {
 }
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout 
+      home
+      title={null}
+      description="专注前端技术的开发者博客，分享 JavaScript、React、Next.js、Git 等技术文章与实战经验。"
+    >
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <p>Hello, just call me 64n.</p>
         <h2 className={utilStyles.headingXl}>Blog</h2>

@@ -1,6 +1,8 @@
 ---
 title: '提升/Hoisting'
 date: '2025-11-15'
+description: '详解 JavaScript 提升（Hoisting）机制，包括 var、let、const 变量提升的差异，函数声明与函数表达式的提升行为，以及暂时性死区（TDZ）的概念。'
+keywords: 'JavaScript, Hoisting, 变量提升, 暂时性死区, TDZ, 作用域, var, let, const'
 ---
 ## 提升(Hoisting)定义
 在 JavaScript 中，变量声明和函数声明在代码执行前会被“提升”到当前作用域的顶部。
