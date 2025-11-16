@@ -1,6 +1,6 @@
 ---
 title: '类-构造函数-实例-原型之间的关系'
-date: '2025-11-15'
+date: '2025-11-17'
 description: '深入解析 JavaScript 中类、构造函数、实例和原型之间的关系。理解 ES6 类语法的本质，掌握原型链机制，以及类声明与函数构造器的异同。'
 keywords: 'JavaScript, 类, 构造函数, 原型, 原型链, ES6, class, prototype'
 ---
