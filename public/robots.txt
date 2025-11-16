@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://64n-blog.vercel.app
-
-# Sitemaps
-Sitemap: https://64n-blog.vercel.app/sitemap.xml
