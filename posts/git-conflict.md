@@ -44,6 +44,23 @@ Auto-merging posts/git-conflict.md
 CONFLICT (content): Merge conflict in posts/git-conflict.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
+## 解决合并冲突
+
+### 查看冲突文件
+```shell
+git status
+```
+### 标记冲突已解决
+编辑完冲突文件后，你需要标记冲突已解决：
+```shell
+git add posts/git-conflict.md
+```
+### 合并冲突
+```shell
+git rebase --continue # 如果是 rebase 操作
+# 或者
+git commit # 如果是 merge 操作
+```
 
 ## 解决冲突之后
 当feature-a分支和feature-b分支第一次各自在同一个文件的第17行做了更改，产生了合并冲突解决之后。后续a分支和b分支再一次各自在同一个文件的第17行做了更改，这时候合并不会产生冲突，为什么？
@@ -54,10 +71,17 @@ Automatic merge failed; fix conflicts and then commit the result.
 ![第一次合并](../images/git-conflict-1.png)
 ### 第二次合并不产生冲突
 ![第二次合并](../images/git-conflict-2.png)
-### 两次合并之后的Git Graph
+### 两次合并之后的Git Graphz(git merge)
 ![两次合并后的源代码管理图形](../images/git-conflict-gui.png)
+
+在主分支git merge功能分支和在功能分支git rebase主分支的区别在于，git merge会创建一个新的合并提交，保留了两个分支的历史记录，而git rebase则是将一个分支的提交应用到另一个分支之上，形成一条线性的历史记录。
+| 操作 | 结果风格 | 是否重写提交 | 是否产生 merge commit |
+| --- | --- | --- | --- |
+| `git rebase` | 线性历史 | 会 | 不会 |
+| `git merge`  | 分叉历史 | 不会 | 会 |
 
 ---
 参考：
 - [关于合并冲突 - GitHub 文档](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
 - [在 VS Code 中使用 Git 版本控制](https://code.visualstudio.com/docs/sourcecontrol/overview#_merge-conflicts)
+- [如何在Git中处理合并冲突？-知乎](https://zhuanlan.zhihu.com/p/21943908560)
