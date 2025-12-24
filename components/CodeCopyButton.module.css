@@ -82,7 +82,7 @@
 }
 
 /* 确保 pre 块有足够的上边距容纳按钮 */
-:global(pre) {
+.codeBlock {
   position: relative;
   padding-top: 2.5rem !important;
 }

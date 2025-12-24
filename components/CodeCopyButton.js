@@ -41,7 +41,8 @@ export default function CodeCopyButton() {
       `;
       
       buttonContainer.appendChild(button);
-      pre.style.position = 'relative';
+      // 使用本地样式类确保空间与定位（替代 :global(pre) 规则）
+      pre.classList.add(styles.codeBlock);
       pre.insertBefore(buttonContainer, pre.firstChild);
       
       // 复制功能
