@@ -57,7 +57,7 @@ git add posts/git-conflict.md
 ```
 ### 合并冲突
 ```shell
-git rebase --continue # 如果是 rebase 操作
+git rebase --continue # 如果是 rebase 操作 （永远使用rebase？）
 # 或者
 git commit # 如果是 merge 操作
 ```
