@@ -13,7 +13,7 @@
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "hastscript": "^9.0.1",
-    "next": "latest",
+    "next": "15.5.8",
     "react": "latest",
     "react-dom": "latest",
     "rehype-highlight": "^7.0.2",
