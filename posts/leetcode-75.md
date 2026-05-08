@@ -2,7 +2,7 @@
 title: 'leetcode-75-颜色分类'
 date: '2026-05-08'
 description: 'leetcode'
-keywords: '指针 数组结构赋值'
+keywords: '指针, 数组结构赋值'
 ---
 
 ### 题解
