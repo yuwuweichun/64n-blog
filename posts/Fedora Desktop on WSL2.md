@@ -28,6 +28,7 @@ sudo mkdir -p /tmp/.X11-unix && sudo chmod 1777 /tmp/.X11-unix
 ---
 -> 参考：
 https://wsl-ui.octasoft.co.uk/blog/wsl2-gui-troubleshooting#black-screen-after-login
+
 ---
 #### .xsession
 ```zsh
