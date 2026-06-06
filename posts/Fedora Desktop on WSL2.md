@@ -1,6 +1,6 @@
 ---
 title: 'Fedora Desktop on WSL2'
-date: '2026-6-6'
+date: '2026-06-06'
 description: '记录了 Fedora Desktop on WSL2 的配置过程，以及遇到的黑屏问题和解决方案'
 keywords: 'XRDP, Fedora, WSL'
 ---
