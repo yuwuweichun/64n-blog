@@ -1,5 +1,5 @@
 ---
-title: 'JS-Aagin-00'
+title: 'JS-Aagin-00 介绍'
 date: '2026-05-09'
 description: 'introduction to JS-Again'
 keywords: '最佳实践, 犯错, ES6, 运行时, Node.js'
