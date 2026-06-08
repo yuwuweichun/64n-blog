@@ -1,5 +1,7 @@
 # AI Agent Project Instructions (Next.js Blog)
 
+> 注意：本文档上一次更新于2026年01月，内容可能已经失效，仅供参考
+
 > 目的：帮助 AI 编码代理在本仓库（Next.js 静态博客，pages 路由）中快速定位结构、扩展 Markdown、引入样式模式，并避免与当前实现不符的假设。
 
 ## 架构概览
@@ -65,17 +67,11 @@ date: '2025-11-14'
 - 新增依赖需与 Node >=18 兼容；避免引入需要额外构建配置的复杂工具（保持静态生成的简洁）。
 
 ## 已实现功能
-- ✅ 代码高亮：`rehype-highlight` + Atom OneDark 配色
-- ✅ Callouts 标注框：`remark-directive` + 自定义插件（`lib/remark-callouts.js`）
+- 代码高亮：`rehype-highlight` + Atom OneDark 配色
+- Callouts 标注框：`remark-directive` + 自定义插件（`lib/remark-callouts.js`）
   - 语法：`:::note`、`:::warning`、`:::danger`、`:::success`
   - 颜色：蓝（note）、橙（warning）、红（danger）、绿（success）
-- ✅ GFM 支持：表格、删除线、任务列表等（`remark-gfm`）
-
-## 可扩展建议（基于现状，可直接落地）
-- TOC 目录：在 `remark` 管线加入 `remark-toc`。
-- RSS/站点地图：在 `getSortedPostsData` 结果基础上生成静态文件于 `public/`。
-- 图像优化：Markdown 图片可迁移为 `<Image>` 组件（需解析阶段替换）。
-- 数学公式：添加 `remark-math` + `rehype-katex`。
+- GFM 支持：表格、删除线、任务列表等（`remark-gfm`）
 
 ## 部署与发布
 
