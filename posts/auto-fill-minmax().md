@@ -9,7 +9,7 @@ keywords: 'CSS Grid, auto-fill, auto-fit, minmax, 响应式布局, 卡片列表,
 
 >[!question] 卡片应该固定宽度，还是跟随容器自动伸缩？
 
-如果卡片宽度完全固定，页面在某些宽度下会出现右侧空白过大(宽度不够再放下一列时)；
+如果卡片宽度完全固定，页面在某些宽度下会出现右侧空白过大，也就是宽度不够再放下一列时；
 如果用 `justify-content: space-between` 强行分摊空白，如果卡片数量少，卡片之间的间距又会被拉得很夸张。
 
 更自然的做法是：
@@ -44,28 +44,28 @@ gap: 20px;
 
 但问题是，当容器宽度“差一点就能放下下一列”时，右侧会留下明显空白。
 
-<div style="border:1px solid #ddd; padding:16px; border-radius:8px; margin:16px 0;">
-  <p style="margin:0 0 12px; font-weight:600;">固定列宽：repeat(auto-fill, 280px)</p>
+下面的演示为了适配博客正文的 `544px` 内容宽度，把演示卡片宽度缩小为 `128px`：
+
+<div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin:16px 0; box-sizing:border-box;">
+  <p style="margin:0 0 12px; font-weight:600;">固定列宽：repeat(auto-fill, 128px)</p>
   <div style="
     display:grid;
-    grid-template-columns:repeat(auto-fill, 280px);
-    gap:20px;
+    grid-template-columns:repeat(auto-fill, 128px);
+    gap:16px;
     justify-content:start;
     background:#f7f7f8;
-    padding:16px;
+    padding:12px;
+    box-sizing:border-box;
   ">
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 01</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 02</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 03</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 04</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 05</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 06</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 07</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 08</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 09</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 10</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 11</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 12</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 01</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 02</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 03</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 04</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 05</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 06</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 07</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 08</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 09</div>
   </div>
 </div>
 
@@ -87,18 +87,19 @@ gap: 20px;
 
 当一行卡片数量不多时，卡片间距会变得非常大，视觉上容易显得松散。
 
-<div style="border:1px solid #ddd; padding:16px; border-radius:8px; margin:16px 0;">
+<div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin:16px 0; box-sizing:border-box;">
   <p style="margin:0 0 12px; font-weight:600;">固定列宽 + space-between</p>
   <div style="
     display:grid;
-    grid-template-columns:repeat(auto-fit, 280px);
-    gap:20px;
+    grid-template-columns:repeat(auto-fit, 128px);
+    gap:16px;
     justify-content:space-between;
     background:#f7f7f8;
-    padding:16px;
+    padding:12px;
+    box-sizing:border-box;
   ">
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 1</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 2</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 1</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 2</div>
   </div>
 </div>
 
@@ -121,30 +122,30 @@ gap: 20px;
 
 - 先保证每列至少 `240px`
 - 能多放一列就多放一列
-- 不能多放时，让现有列稍微变宽，即fraction，1fr代表可用剩余空间的一份
+- 不能多放时，让现有列稍微变宽，也就是 fraction，`1fr` 代表可用剩余空间的一份
 - 卡片间距仍然固定为 `20px`
 
-<div style="border:1px solid #ddd; padding:16px; border-radius:8px; margin:16px 0;">
-  <p style="margin:0 0 12px; font-weight:600;">流式列宽：repeat(auto-fill, minmax(240px, 1fr))</p>
+下面的演示同样使用适合正文宽度的 `128px` 作为最小列宽：
+
+<div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin:16px 0; box-sizing:border-box;">
+  <p style="margin:0 0 12px; font-weight:600;">流式列宽：repeat(auto-fill, minmax(128px, 1fr))</p>
   <div style="
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fill, minmax(128px, 1fr));
+    gap:16px;
     background:#f7f7f8;
-    padding:16px;
+    padding:12px;
+    box-sizing:border-box;
   ">
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 01</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 02</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 03</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 04</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 05</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 06</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 07</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 08</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 09</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 10</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 11</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 12</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 01</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 02</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 03</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 04</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 05</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 06</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 07</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 08</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 09</div>
   </div>
 </div>
 
@@ -171,17 +172,18 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
 也就是说，即使当前只有两个卡片，网格仍然会按照容器宽度计算出后面还能容纳的列。这样卡片不会被无限拉宽，更像是仍然处在一个完整的卡片库网格中。
 
-<div style="border:1px solid #ddd; padding:16px; border-radius:8px; margin:16px 0;">
+<div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin:16px 0; box-sizing:border-box;">
   <p style="margin:0 0 12px; font-weight:600;">auto-fill：少量卡片不会被拉得过大</p>
   <div style="
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fill, minmax(128px, 1fr));
+    gap:16px;
     background:#f7f7f8;
-    padding:16px;
+    padding:12px;
+    box-sizing:border-box;
   ">
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 1</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 2</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 1</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 2</div>
   </div>
 </div>
 
@@ -195,17 +197,18 @@ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 
 如果只有两个卡片，剩余空间会被这两个卡片吃掉，它们可能会变得很宽。
 
-<div style="border:1px solid #ddd; padding:16px; border-radius:8px; margin:16px 0;">
+<div style="border:1px solid #ddd; padding:12px; border-radius:8px; margin:16px 0; box-sizing:border-box;">
   <p style="margin:0 0 12px; font-weight:600;">auto-fit：空列被折叠，少量卡片会变宽</p>
   <div style="
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit, minmax(128px, 1fr));
+    gap:16px;
     background:#f7f7f8;
-    padding:16px;
+    padding:12px;
+    box-sizing:border-box;
   ">
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 1</div>
-    <div style="height:96px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center;">Card 2</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 1</div>
+    <div style="height:72px; background:#fff; border:1px solid #ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px;">Card 2</div>
   </div>
 </div>
 
@@ -274,6 +277,8 @@ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 - 少量卡片时不会被拉得过大
 
 简单说：
+
 >[!note]
 >固定列宽适合严格尺寸控制；  
 >`auto-fill + minmax()` 更适合响应式卡片库。
+
