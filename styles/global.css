@@ -224,6 +224,10 @@ pre code {
   font-size: 0.7em;
 }
 
+.callout-title:last-child {
+  margin-bottom: 0;
+}
+
 /* Note - 蓝色 */
 .callout.callout-note {
   border-left-color: var(--cli-blue);
@@ -258,6 +262,24 @@ pre code {
 
 .callout.callout-success .callout-title {
   color: var(--cli-green);
+}
+
+/* Tip - 紫色 */
+.callout.callout-tip {
+  border-left-color: var(--cli-purple);
+}
+
+.callout.callout-tip .callout-title {
+  color: var(--cli-purple);
+}
+
+/* Question - 青色 */
+.callout.callout-question {
+  border-left-color: var(--cli-cyan);
+}
+
+.callout.callout-question .callout-title {
+  color: var(--cli-cyan);
 }
 
 /* ========== Markdown 内容美化 ========== */
