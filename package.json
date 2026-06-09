@@ -8,6 +8,8 @@
     "clean": "rd /s /q .next"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
     "@tailwindcss/postcss": "^4.1.17",
     "autoprefixer": "^10.4.22",
     "date-fns": "^4.1.0",
@@ -25,6 +27,7 @@
     "remark-html": "^16.0.1",
     "remark-rehype": "^11.1.2",
     "tailwindcss": "^4.1.17",
+    "three": "^0.184.0",
     "unist-util-visit": "^5.0.0"
   },
   "engines": {
